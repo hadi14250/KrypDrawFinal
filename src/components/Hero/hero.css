@@ -1,0 +1,138 @@
+.site-hero {
+  padding: 90px 0 140px;
+  margin-bottom: 170px;
+  position: relative;
+  background-image: url(/static/images/hero-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: var(--site-bg);
+}
+
+.site-hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-hero-title {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 680px;
+  object-fit: contain;
+}
+
+.site-hero-text {
+  width: 560px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  object-fit: contain;
+}
+
+.site-hero-link {
+  padding: 20px 35px;
+  display: inline-flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pink);
+  color: var(--white);
+  border-radius: 45px;
+  border: 3px solid var(--blue);
+}
+
+.hero-bottom-likn {
+  padding: 10px 25px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pink);
+  color: var(--white);
+  border-radius: 45px;
+  border: 3px solid var(--blue);
+}
+
+.hero-bottom-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--dark-blue);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: -170px;
+  border-radius: 40px;
+  border-bottom: 8px solid var(--light-pink);
+  width: 650px;
+}
+
+.hero-bottom-text {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.hero-bottom-img {
+  width: 122px;
+  height: 122px;
+  object-fit: contain;
+}
+
+.hero-bottom-text {
+  text-align: center;
+  width: 100%;
+}
+
+.hero-bottom-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .site-hero {
+    margin-bottom: 500px;
+  }
+
+  .site-hero-title {
+    width: 400px;
+  }
+
+  .site-hero-text {
+    width: 300px;
+  }
+
+  .site-hero-link {
+    padding: 15px 25px;
+    font-size: 20px;
+    border-radius: 35px;
+  }
+
+  .hero-bottom {
+    width: calc(100% - 30px);
+    bottom: -500px;
+  }
+
+  .hero-bottom-img {
+    margin-bottom: 25px;
+  }
+
+  .hero-bottom-holder {
+    padding: 0;
+    margin-bottom: 25px;
+  }
+
+  .hero-bottom-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-bottom-title {
+    font-size: 21px;
+  }
+
+  .hero-bottom-text {
+    font-size: 15px;
+  }
+}
