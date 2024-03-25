@@ -7,7 +7,7 @@ import { currencies } from "./shop/page";
 import ActiveDraws from "@/components/ActiveDraws/ActiveDraws";
 import PreviousDraws from "@/components/PreviousDraws/PreviousDraws";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Hero />
@@ -16,7 +16,7 @@ export default async function Home() {
       <section className="w-full flex items-center justify-center py-20">
         <div className="max-w-[1200px]">
           <h3 className="supported-title mb-10">Upcoming Draws</h3>
-          <div className="upcoming-wrapper px-8  flex items-center justify-between flex-wrap gap-10">
+          <div className="upcoming-wrapper px-8 flex items-center justify-between flex-wrap gap-10">
             <UpCard img="/static/images/anime1.png" />
             <UpCard img="/static/images/anime2.png" />
             <UpCard img="/static/images/anime4.png" />

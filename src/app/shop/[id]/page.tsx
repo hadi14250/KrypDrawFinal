@@ -56,10 +56,10 @@ const SingleShopPage = (props: any) => {
         background:
           "linear-gradient(305deg, #1B0229 3.07%, #4A066F 47.68%, #65188E 89.86%)",
       }}
-      className="w-full pt-26 h-[100vh] p-10 flex justify-center"
+      className="w-full pt-26 h-[100vh] p-10 flex justify-center items-center"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1500px]">
-        <div className="w-full rounded-[16px] p-16 bg-[#05012E] h-full max-h-[540px]">
+        <div className="w-full rounded-[16px] p-16 bg-[#05012E] h-full max-h-[440px]">
           <Image
             unoptimized={true}
             alt={currency.name}

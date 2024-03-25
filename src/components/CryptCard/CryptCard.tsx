@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export default function CryptCard(props: any) {
   const { title, img, isPrevious } = props;
-  console.log(img);
   return (
     <div className="draw-card h-[225px] w-[324px] relative p-[3px]">
       <Image
@@ -25,7 +24,7 @@ export default function CryptCard(props: any) {
       />
       <div
         style={{
-          clipPath: "polygon(0 0, 88% 0, 100% 16%, 100% 100%, 12% 100%, 0 88%)",
+          clipPath: "polygon(0 0, 88% 0, 100% 16%, 100% 100%, 12% 100%, 0 91%)",
         }}
         className="w-full h-full flex items-center justify-center bg-[#15112C] flex items-center"
       >

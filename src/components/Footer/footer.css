@@ -24,12 +24,6 @@
   font-size: 30px;
 }
 
-.footer-bottom-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
 @media screen and (max-width: 768px) {
   .footer-bottom-wrapper {
     margin-bottom: 20px;

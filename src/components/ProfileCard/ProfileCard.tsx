@@ -8,7 +8,8 @@ import {
 } from "../ui/tooltip";
 import Link from "next/link";
 
-const ProfileCard = ({ user }: { user: any }) => {
+const ProfileCard = (props: any) => {
+  const { user } = props;
   return (
     <div className="draw-card h-[290px] w-[350px] relative p-[3px]">
       <Image
@@ -78,7 +79,7 @@ const ProfileCard = ({ user }: { user: any }) => {
             <h1 className="text-[#B9B9B9] text-[11px]">Telegram</h1>
           </div>
         </div>
-        <Link href="/profile" className="p-4 glow-on-hover uppercase">
+        <Link href="/shop" className="p-4 glow-on-hover uppercase">
           Buy more tickets
         </Link>
       </div>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDashboard } from "@fortawesome/free-solid-svg-icons";
 
 const DropdownUser = ({
   trigger,
@@ -96,6 +98,17 @@ const DropdownUser = ({
         }`}
       >
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
+          {session && session.user?.role === "admin" && (
+            <li>
+              <Link
+                href={`/dashboard`}
+                className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+              >
+                <FontAwesomeIcon className="text-[22px]" icon={faDashboard} />
+                Dashboard
+              </Link>
+            </li>
+          )}
           <li>
             <Link
               href={`/profile`}

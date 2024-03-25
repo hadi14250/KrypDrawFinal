@@ -1,20 +1,19 @@
 import SupCard from "@/components/SupCard/SupCard";
 import React from "react";
 import "../home.css";
-import SupCustomCard from "@/components/SupCustomCard/SupCustomCard";
 
 export const currencies = [
   {
-    id: "1",
+    id: "krypdraw",
     name: "KRYPDRAW",
     tickets: 20,
     amount: "2",
     ticketPrice: 10,
     tokenPrice: 0.02,
-    img: "/static/images/kryp.png",
+    img: "/static/images/kryp.svg",
   },
   {
-    id: "2",
+    id: "btc",
     name: "BTC",
     tickets: 20,
     amount: "0.00076",
@@ -23,7 +22,7 @@ export const currencies = [
     img: "/static/images/bitcoin.svg",
   },
   {
-    id: "3",
+    id: "eth",
     name: "ETH",
     tickets: 200,
     amount: "0.56",
@@ -32,7 +31,7 @@ export const currencies = [
     img: "/static/images/black.svg",
   },
   {
-    id: "4",
+    id: "sol",
     name: "SOL",
     tickets: 20,
     amount: "2",
@@ -41,7 +40,7 @@ export const currencies = [
     img: "/static/images/s.png",
   },
   {
-    id: "5",
+    id: "usdt",
     name: "USDT",
     tickets: 20,
     amount: "2",
@@ -53,15 +52,10 @@ export const currencies = [
 
 const ShopPage = () => {
   return (
-    <section className="w-full pt-30 flex justify-center items-center pt-10 pb-20">
+    <section className="w-full flex justify-center items-center pt-20 pb-10">
       <div className="supported-container max-w-[1000px] container flex flex-col justify-center items-center gap-10">
-        <h3 className="supported-title !text-[24px]">Supported Currencies</h3>
-        <div
-          style={{
-            gridAutoRows: "1fr",
-          }}
-          className="flex items-center justify-center flex-wrap gap-8"
-        >
+        <h3 className="supported-title">Supported Currencies</h3>
+        <div className="flex items-center justify-center flex-wrap gap-8">
           {currencies.map((item, index) => (
             <SupCard key={index} button={true} item={item} />
           ))}

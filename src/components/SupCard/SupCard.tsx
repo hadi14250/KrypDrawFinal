@@ -15,7 +15,9 @@ export default function SupCard(props: any) {
       style={{
         height: button ? "250px" : "200px",
       }}
-      className="draw-card h-[200px] w-[264px] relative p-[3px]"
+      className={`${
+        button ? "draw-card-button" : "draw-card"
+      } h-[200px] w-[264px] relative p-[3px]`}
     >
       <Image
         unoptimized={true}
@@ -35,7 +37,9 @@ export default function SupCard(props: any) {
       />
       <div
         style={{
-          clipPath: "polygon(0 0, 88% 0, 100% 16%, 100% 100%, 12% 100%, 0 91%)",
+          clipPath: button
+            ? "polygon(0 0, 88% 0, 100% 16%, 100% 100%, 12% 100%, 0 93%)"
+            : "polygon(0 0, 88% 0, 100% 16%, 100% 100%, 12% 100%, 0 91%)",
         }}
         className="w-full h-full flex items-center justify-center bg-[#15112C]"
       >

@@ -1,5 +1,4 @@
 "use client";
-import { SessionProvider } from "next-auth/react";
 import React from "react";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
@@ -24,19 +23,11 @@ const config = getDefaultConfig({
 const queryClient = new QueryClient();
 
 const HomePage = (props: any) => {
-  const { session, children } = props;
+  const { children } = props;
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
-          <SessionProvider
-            refetchInterval={5 * 60}
-            refetchOnWindowFocus={true}
-            session={session}
-          >
-            {children}
-          </SessionProvider>
-        </RainbowKitProvider>
+        <RainbowKitProvider>{children}</RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

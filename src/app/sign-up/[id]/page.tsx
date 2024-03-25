@@ -18,9 +18,9 @@ import { Button } from "@/components/ui/button";
 import { PasswordInput } from "@/components/PasswordInput/PasswordInput";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
-const Login = () => {
+const VerifyEmail = (props: any) => {
+  const { params } = props;
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
   });
@@ -28,9 +28,10 @@ const Login = () => {
   const router = useRouter();
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
-      const response = await signIn("credentials", {
-        login: data.login,
+      const response = await signIn("verify-email", {
+        username: data.login,
         password: data.password,
+        id: params.id,
         redirect: false,
       });
       if (response?.status === 401) {
@@ -76,10 +77,6 @@ const Login = () => {
                 </FormControl>
                 <FormMessage />
                 {error && <p>{error}</p>}
-                <div className="flex items-center justify-between">
-                  <Link href="/password-recovery">Forgot Password?</Link>
-                  <Link href="/sign-up">Create an account</Link>
-                </div>
               </FormItem>
             )}
           />
@@ -90,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default VerifyEmail;

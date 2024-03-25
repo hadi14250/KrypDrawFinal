@@ -27,11 +27,55 @@ export const fetchUser = async (token: string) => {
   }
 };
 
-export const fetchCampaigns = async (page: number, token: string) => {
+export const fetchActiveCampaigns = async (page: number) => {
   const res = await fetch(`${baseUrl}/api/campaign/paginate/true`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ page: page, take: 10, order: "ASC" }),
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(await res.json());
+  }
+};
+
+export const fetchInActiveCampaigns = async (page: number) => {
+  const res = await fetch(`${baseUrl}/api/campaign/paginate/false`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ page: page, take: 10, order: "ASC" }),
+  });
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(await res.json());
+  }
+};
+
+export const fetchEntries = async (page: number, token: string) => {
+  const res = await fetch(`${baseUrl}/api/entry/paginate`, {
+    method: "POST",
     headers: {
-      "Content-Type": "application",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ page: page, take: 10, order: "ASC" }),
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(await res.json());
+  }
+};
+
+export const fetchTransactions = async (page: number, token: string) => {
+  const res = await fetch(`${baseUrl}/api/transaction/paginate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ page: page, take: 10, order: "ASC" }),

@@ -4,7 +4,7 @@ import "./header.css";
 import Link from "next/link";
 import Image from "next/image";
 import DropdownUser from "../DropDownUser/DropDownUser";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
@@ -13,7 +13,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [darkNav, setDarkNav] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const pathname = usePathname();
   const [index, setIndex] = useState(-1);
   const dropdown = useRef(null);
@@ -78,6 +78,12 @@ export default function Header() {
       document.removeEventListener("click", clickHandler);
     };
   }, []);
+
+  useEffect(() => {
+    if (session && session.error === "Session Expired") {
+      signOut();
+    }
+  }, [session]);
 
   useEffect(() => {
     setIndex(links.findIndex((link) => link.path === pathname));

@@ -1,17 +1,15 @@
 "use client";
-import { SessionProvider, signOut, useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 import Header from "../Header/Header";
+import { SessionProvider } from "next-auth/react";
 
-const Navbar = () => {
-  const { data: session } = useSession();
-  useEffect(() => {
-    if (session && session.error === "Session Expired") {
-      signOut();
-    }
-  }, [session]);
-
-  return <Header />;
+const Navbar = (props: any) => {
+  const { session } = props;
+  return (
+    <SessionProvider session={session}>
+      <Header />
+    </SessionProvider>
+  );
 };
 
 export default Navbar;

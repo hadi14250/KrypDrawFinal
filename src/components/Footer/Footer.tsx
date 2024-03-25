@@ -1,10 +1,28 @@
 import Image from "next/image";
 import "./footer.css";
-import Bl from "/images/black.svg";
-import S from "/images/s.png";
-import T from "/images/t.png";
-import Link from "next/link";
-import { currencies } from "@/app/(homepage)/shop/page";
+
+const supportedCurrencies = [
+  {
+    alt: "KRYPDRAW",
+    img: "/static/images/logo.svg",
+  },
+  {
+    alt: "BTC",
+    img: "/static/images/bitcoin.svg",
+  },
+  {
+    alt: "ETHEREUM",
+    img: "/static/images/black.svg",
+  },
+  {
+    alt: "SOL",
+    img: "/static/images/s.png",
+  },
+  {
+    alt: "USDT",
+    img: "/static/images/t.png",
+  },
+];
 
 export default function Footer() {
   return (
@@ -27,15 +45,15 @@ export default function Footer() {
             <p className="footer-bottom-text mr-5 mr-md-2">
               Supported Payments
             </p>
-            {currencies.map((item, index) => (
+            {supportedCurrencies.map((item, index) => (
               <Image
                 unoptimized={true}
                 key={index}
-                width={40}
-                height={40}
-                className="footer-bottom-img mr-2 rounded-full"
+                width={50}
+                height={50}
+                className="mr-2 max-h-[40px] object-contain"
                 src={item.img}
-                alt="bitcoin"
+                alt={item.alt}
               />
             ))}
           </div>
