@@ -61,9 +61,9 @@ export default function Hero() {
           <Image
             unoptimized={true}
             src="/static/images/hero.gif"
-            width={600}
-            height={600}
-            className="pb-26"
+            width={800}
+            height={800}
+            className="pb-10"
             alt="hero image"
           />
         </div>
