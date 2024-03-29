@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) return { ...token, ...user };
       const expiresIn: any = token.expiresIn;
-      if (new Date().getTime() < expiresIn - 5000) return { ...token, ...user };
+      if (new Date().getTime() < expiresIn - 5000) return { ...token };
       try {
         const refreshToken: any = token.refresh;
         const newToken: any = await fetchRefreshToken(refreshToken);
@@ -35,10 +35,10 @@ export const authOptions: NextAuthOptions = {
         token.user = newToken.user;
         token.expiresIn = newToken.expiresIn;
         token.isActive = true;
-        return { ...token, ...user };
+        return { ...token };
       } catch (err) {
         token.isActive = false;
-        return { ...token, ...user };
+        return { ...token };
       }
     },
 

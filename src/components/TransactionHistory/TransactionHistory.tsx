@@ -21,10 +21,12 @@ const TransactionHistory = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const getTransactions = async (page: number) => {
-    try {
-      const transactions = await fetchTransactions(page, session.token);
-      return transactions.data;
-    } catch (error) {}
+    if (session?.token) {
+      try {
+        const transactions = await fetchTransactions(page, session.token);
+        return transactions.data;
+      } catch (error) {}
+    }
   };
 
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
@@ -63,8 +65,9 @@ const TransactionHistory = () => {
           <DialogTitle>Transactions</DialogTitle>
         </DialogHeader>
         <div className="space-y-4 h-[300px] overflow-y-auto p-4">
-          {data?.pages?.length <= 0 ||
-          (data?.pages?.length === 1 && data?.pages[0].length <= 0) ? (
+          {data?.pages &&
+          (data?.pages?.length <= 0 ||
+            (data?.pages?.length === 1 && data?.pages[0].length <= 0)) ? (
             <div className="h-full w-full flex items-center justify-center">
               You have not made any transactions yet.
             </div>

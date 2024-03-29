@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import HomePage from "@/components/HomePage/HomePage";
 import { Toaster } from "react-hot-toast";
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
+import { authOptions } from "@/utils/authOptions";
 
 const roboto = Roboto_Mono({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default async function HomePageLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body

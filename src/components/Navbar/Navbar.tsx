@@ -6,7 +6,11 @@ import { SessionProvider } from "next-auth/react";
 const Navbar = (props: any) => {
   const { session } = props;
   return (
-    <SessionProvider session={session}>
+    <SessionProvider
+      refetchInterval={5 * 60}
+      refetchOnWindowFocus={true}
+      session={session}
+    >
       <Header />
     </SessionProvider>
   );

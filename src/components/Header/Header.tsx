@@ -16,7 +16,7 @@ export default function Header() {
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const [index, setIndex] = useState(-1);
-  const dropdown = useRef(null);
+  const dropdown = useRef<any>(null);
   const profileTrigger = useRef<any>(null);
   const profileDropdown = useRef<any>(null);
   const trigger = useRef<any>(null);

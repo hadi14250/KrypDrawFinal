@@ -21,7 +21,7 @@ const DropdownUser = ({
   const { data: session } = useSession();
   const pathname = usePathname();
   const [isProfile, setIsProfile] = useState(false);
-
+  console.log(session);
   // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }: KeyboardEvent) => {

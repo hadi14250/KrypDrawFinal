@@ -3,9 +3,9 @@ import UpCard from "@/components/UpCard/UpCard";
 import SupCard from "@/components/SupCard/SupCard";
 import Link from "next/link";
 import Hero from "@/components/Hero/Hero";
-import { currencies } from "./shop/page";
 import ActiveDraws from "@/components/ActiveDraws/ActiveDraws";
 import PreviousDraws from "@/components/PreviousDraws/PreviousDraws";
+import { currencies } from "@/lib/utils";
 
 export default function Home() {
   return (

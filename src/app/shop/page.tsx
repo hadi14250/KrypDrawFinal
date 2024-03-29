@@ -1,54 +1,7 @@
 import SupCard from "@/components/SupCard/SupCard";
 import React from "react";
 import "../home.css";
-
-export const currencies = [
-  {
-    id: "krypdraw",
-    name: "KRYPDRAW",
-    tickets: 20,
-    amount: "2",
-    ticketPrice: 10,
-    tokenPrice: 0.02,
-    img: "/static/images/kryp.svg",
-  },
-  {
-    id: "btc",
-    name: "BTC",
-    tickets: 20,
-    amount: "0.00076",
-    ticketPrice: 10,
-    tokenPrice: 57635,
-    img: "/static/images/bitcoin.svg",
-  },
-  {
-    id: "eth",
-    name: "ETH",
-    tickets: 200,
-    amount: "0.56",
-    ticketPrice: 10,
-    tokenPrice: 2948,
-    img: "/static/images/black.svg",
-  },
-  {
-    id: "sol",
-    name: "SOL",
-    tickets: 20,
-    amount: "2",
-    ticketPrice: 10,
-    tokenPrice: 100,
-    img: "/static/images/s.png",
-  },
-  {
-    id: "usdt",
-    name: "USDT",
-    tickets: 20,
-    amount: "2",
-    ticketPrice: 10,
-    tokenPrice: 1.0002,
-    img: "/static/images/t.png",
-  },
-];
+import { currencies } from "@/lib/utils";
 
 const ShopPage = () => {
   return (
